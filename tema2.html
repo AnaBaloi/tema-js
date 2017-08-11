@@ -1,0 +1,29 @@
+<script>
+var text = 'sed ut perspiciatis unde omnis iste natus';
+
+// Cerinta 1: Numarul de caractere din string
+console.log(text.length);
+
+// Cerinta 2: Numarul de caractere diferite de spatiu
+var newText = text.replace(/ /g, ''); // cu g-ul de la final, imi cauta Toate spatiile libere sau ceea ce caut eu sa fac replace.
+console.log(newText.length);
+
+// Cerinta 3: Afisati cu litere mari primul cuvant din string
+ var newText = text.replace(/sed/, 'SED');
+console.log(newText);
+ /* sau varianta asta
+text = text.substring(0,1).toUpperCase() + text.substring(1).toLowerCase()
+console.log(text);
+*/
+
+// Cerinta 4: Inlocuiti primul cuvant cu stringul 'word'
+var textResult = text.replace(/sed/i, 'word');
+console.log(textResult);
+
+//Cerinta 6: Stergeti al doilea cuvant din string
+removeWord = ' ut';
+re = new RegExp(removeWord, 'gi'); // g - face un search global fara sa se opreasca la primul match iar i - face un case-sensitive search match
+text = text.replace(re, '');
+console.log(text);
+
+</script>
