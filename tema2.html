@@ -2,14 +2,16 @@
 var text = 'sed ut perspiciatis unde omnis iste natus';
 
 // Cerinta 1: Numarul de caractere din string
-console.log(text.length);
+console.log('Numarul de caractere din string: ' + text.length);
 
 // Cerinta 2: Numarul de caractere diferite de spatiu
 var newText = text.replace(/ /g, ''); // cu g-ul de la final, imi cauta Toate spatiile libere sau ceea ce caut eu sa fac replace.
-console.log(newText.length);
+console.log('Numarul de caractere diferite de spatiu: ' + newText.length);
 
 // Cerinta 3: Afisati cu litere mari primul cuvant din string
- var newText = text.replace(/sed/, 'SED');
+// var newText = text.replace(/sed/, 'SED');
+var firstWord = text.substring(0, text.indexOf(' '));
+var newText = text.replace(firstWord, firstWord.toUpperCase());
 console.log(newText);
  /* sau varianta asta
 text = text.substring(0,1).toUpperCase() + text.substring(1).toLowerCase()
@@ -17,13 +19,19 @@ console.log(text);
 */
 
 // Cerinta 4: Inlocuiti primul cuvant cu stringul 'word'
-var textResult = text.replace(/sed/i, 'word');
+var textResult = text.replace(firstWord, 'word');
 console.log(textResult);
 
 //Cerinta 6: Stergeti al doilea cuvant din string
-removeWord = ' ut';
-re = new RegExp(removeWord, 'gi'); // g - face un search global fara sa se opreasca la primul match iar i - face un case-sensitive search match
-text = text.replace(re, '');
-console.log(text);
+//  nice try :-P
+// removeWord = ' ut';
+// re = new RegExp(removeWord, 'gi'); // g - face un search global fara sa se opreasca la primul match iar i - face un case-sensitive search match
+// text = text.replace(re, '');
+
+var posFirstSpace = text.indexOf(' ');
+var posSecondSpace = text.indexOf(' ', posFirstSpace + 1);
+var secondWord = text.substring(posFirstSpace + 1, posSecondSpace);
+var textWithoutSecondWord = text.replace(secondWord + ' ', '');
+console.log(textWithoutSecondWord);
 
 </script>
